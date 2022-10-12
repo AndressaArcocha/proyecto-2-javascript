@@ -244,3 +244,11 @@
 .disclaimer{font-size: .9rem;color: darkgray}
 .related h3{font-weight: 900}
 .footer{background: #212529;height: 80px;color: #fff}
+
+.contacto {
+    background-color: white;
+    border-radius: 2px;
+}
+.imgError {
+    width: 100%;
+}
