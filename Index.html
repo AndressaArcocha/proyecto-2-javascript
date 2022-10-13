@@ -1,12 +1,432 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo </title>
-</head>
-<body>
+    <meta name="description" content="Pagina de venta de articulos tecnologicos" />
+  <meta name="author" content="Andressa Barros Arcocha,Cristian Navarro, Enzo Dario Lobo Rodriguez
+    , Enzo David Ale Garcia, Matias Ortiz de Rozas, Pablo Javier Ismael, Maria Sofia Garbero " />
+  <meta name="keywords" content="Computadoras, Netbooks, Mouse, Teclados, Monitores" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <!-- ANIMATECSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="pageADN.css">
+    <link rel="stylesheet" href="index.css">
+    <!-- FAVICON -->
+    <link rel="icon" type="image/jpg" href="" />
     
+
+    <title>Compu Store</title>
+</head>
+<header>
+    <!-- NAVBAR INICIO-->
+    <section class="navbarIC">
+        <nav id="menu" class="navbar navbar-expand-lg navbar-dark">
+            <div class="container justify-content-around">
+                <a class="navbar-brand align animate__animated animate__heartBeat ms-3 bold" href="">COMPUSTORE
+                    <img class="img-fluid" src="" alt="" width="150">
+                </a>
+                <!-- BUSCADOR-->
+                <div class="d-flex justify-content-center">
+                    <form class="d-flex ">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button type="button" class="btn-sm  btn-primary">
+                            <i class="bi bi-search"></i>
+                            <button type="button" class="btn-sm  btn-danger ms-2">
+                                <i class="bi bi-cart4"></i>
+
+                            </button>
+                </div>
+            </div>
+            </form>
+
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+                <div id="buttonNav" class="d-grid gap-2 d-lg-block animate__animated animate__heartBeat">
+                    <a href="#link" class="btn btn-danger fw-bolder mx-lg-0 rounded-0 btn-border " role="button"
+                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sign In</a>
+                    <a href="./login.html" class="btn btn-primary fw-bolder mx-lg- rounded-0 btn-border "
+                        role="button">Log In</a>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </section>
+    <!-- NAVBAR FIN-->
+    <!-- CATEGORIAS DE COMPRA INICIO-->
+    <div id="iconbar" class="containerIcon">
+        <div class="cont">
+            <div class="icons">
+                <div class="item">
+                    <a href="">
+                        <div class="icon">
+                        </div>
+                        <div class="text">PC Armadas</div>
+                    </a>
+                </div>
+                <div class="item menu-dropdown-nv">
+                    <div class="dropdown-menu-nv megamenu">
+                        <div class="cols">
+                            <div class="col">
+                                <a href="" class="colorModalBar">Placas de Video</a>
+                                <li><a href="">RADEON</a>
+                                </li>
+                                <li><a href="">NVIDIA</a>
+                                </li>
+                                <div class="martop">
+                                    <a class="colorModalBar" href=""> Procesadores</a>
+                                </div>
+                                <li><a href="">AMD</a>
+                                </li>
+
+                                <li><a href="">INTEL</a>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <a href="" class="colorModalBar">Motherboards</a>
+                                <li><a href="">Asrock</a>
+                                </li>
+                                <li><a href="">Asus</a>
+                                </li>
+                                <li><a href="">Gigabyte</a>
+                                </li>
+                                <li><a href="">Msi</a>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <a href="" class="colorModalBar">Almacenamiento</a>
+                                <li><a href="">DISCOS SATA</a>
+                                </li>
+                                <li><a href="">DISCOS EXTERNOS</a>
+                                </li>
+                                <li><a href="">DISCO PARA NOTEBOOK</a>
+                                </li>
+                                <li><a href="">SSD</a>
+                                </li>
+                                <li><a href="">M2</a>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <a href="" class="colorModalBar">Memorias Ram</a>
+                                <li><a href="">DDR3</a>
+                                </li>
+                                <li><a href="">DDR4</a>
+                                </li>
+                                <li><a href="">SODIM DDR3</a>
+                                </li>
+                                <li><a href="">SODIM DDR4</a>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="colorModalBar">Otros</a>
+                                <li><a href="">FUENTES</a>
+                                </li>
+                                <li><a href="">GABINETES</a>
+                                </li>
+                                <li><a href="">PLACAS DE SONIDO</a>
+                                </li>
+                                <li><a href="">RED</a>
+                                </li>
+                                <li><a href="" title=" combos actualización">COMBOS ACTUALIZACIÓN</a>
+                                </li>
+                                <li><a href="">COOLERS</a>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/">
+                        <div class="icon">
+                        </div>
+                        <div class="text">Hardware</div>
+                    </a>
+                </div>
+                <div class="item menu-dropdown-nv">
+                    <div class="dropdown-menu-nv megamenu">
+                        <div class="cols">
+                            <div class="col">
+                                <a href="" class="colorModalBar">Teclados y Mouses</a>
+                                <li><a href="">Teclados y mouses</a>
+                                </li>
+                                <li><a href="">Teclados inalámbricos</a>
+                                </li>
+                                <li><a href="">Teclados Gamer</a>
+                                </li>
+                                <li><a href="">Mouse Gamer</a>
+                                </li>
+
+
+                            </div>
+                            <div class="col">
+                                <a href="" class="colorModalBar">Multimedia</a>
+                                <li><a href="">Auriculares</a>
+                                </li>
+                                <li><a href="">Micrófonos</a>
+                                </li>
+                                <li><a href="">Parlantes</a>
+                                </li>
+                                <li><a href="">Webcam</a>
+                                </li>
+
+                            </div>
+                            <div class="col">
+                                <a href="" class="colorModalBar">Otros</a>
+                                <li><a href="">Memorias SD</a>
+                                </li>
+                                <li><a href="">Pendrives</a>
+                                </li>
+                                <li><a href="">Discos Externos</a>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <a style=" cursor: default" class="colorModalBar">Otros</a>
+                                <li><a href="">Impresoras</a>
+                                </li>
+                                <li><a href="">Tabletas Digitalizadoras</a>
+                                </li>
+                                <li><a href="">Proyectores</a>
+                                </li>
+                                <li><a href="">Sillas Gamer</a>
+                                </li>
+                                <li><a href="">Mouse pads</a>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/">
+                        <div class="icon">
+                        </div>
+                        <div class="text">Periféricos</div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="" title="Notebooks">
+                        <div class="icon">
+                        </div>
+                        <div class="text">Notebooks</div>
+                    </a>
+                </div>
+                <div class="item menu-dropdown-nv" style="display:none">
+                    <div class="dropdown-menu-nv megamenu">
+                        <div class="cols">
+                            <div class="col">
+                                <a href="" class="colorModalBar">Otros</a>
+                                <li><a href="">Consolas</a>
+                                </li>
+                                <li><a href="">Bici Eléctrica</a>
+                                </li>
+                                <li><a href="">Monopatín Eléctrico</a>
+                                </li>
+                                <li><a href="">Tablet y ebooks</a>
+                                </li>
+                                <li><a href="">Celulares</a>
+                                </li>
+                                <li><a href="">Servidores</a>
+                                </li>
+                                <li><a href="">Estabilizadores</a>
+                                </li>
+                                <li><a href="">Smart Home</a>
+                                </li>
+                                <li><a href="">Smart Watch</a>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                    <a href=" /">
+                        <div class="icon">
+                        </div>
+                        <div class="text">Otros</div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="">
+                        <div class=" icon">
+                        </div>
+                        <div class="text">Monitores</div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- CATEGORIAS DE COMPRA FIN-->
+    <!-- CARRUSEL INICIO-->
+    <div id="carouselExampleInterval" class="carousel slide imgCarousel" data-bs-ride="carousel">
+        <div class="carousel-inner ">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="./Img/05-10-2022-01-10-00-03-10-2022-01-10-01-banner-valorant.png" class="d-block w-100"
+                    alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="./Img/126.png" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="./Img/69.png" class="d-block w-100" alt="">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- CARRUSEL FIN-->
+
+</header>
+
+<body>
+    <!-- INFO INICIO-->
+    <section class="index-informacion">
+        <div class="cont-1170">
+            <div class="modulo">
+                <div class="icono"><img src="https://static2.libreopcion.com/svgs/iconos/icon-cuotas-sin-interes.svg"
+                        alt="¡Cuotas sin interés!"></div>
+                <div class="texto">
+                    <h6>¡Cuotas sin interés!</h6> <span>12 y 18 cuotas fijas en
+                        productos seleccionados</span>
+                </div>
+            </div>
+            <div class="modulo">
+                <div class="icono"><img src="https://static2.libreopcion.com/svgs/iconos/icon-envio-rapido.svg"
+                        alt="Envíos gratis"></div>
+                <div class="texto">
+                    <h6>Envíos gratis</h6> <span>Seguí tu compra en tiempo real, es
+                        rápido y seguro</span>
+                </div>
+            </div>
+            <div class="modulo">
+                <div class="icono"><img src="https://static2.libreopcion.com/svgs/iconos/icon-retiro-sucursal.svg"
+                        alt="¡Retirá gratis!"></div>
+                <div class="texto">
+                    <h6>¡Retirá gratis!</h6> <span>En sucursales express
+                        seleccionadas</span>
+                </div>
+            </div>
+            <div class="modulo">
+                <div class="icono"><img src="https://static2.libreopcion.com/svgs/iconos/icon-compra-segura.svg"
+                        alt="Compra Segura"></div>
+                <div class="texto">
+                    <h6>Compra Segura</h6> <span>Comprá sin limites, nosotros te
+                        cuidamos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- INFO FIN-->
+    <!-- CARRUSEL ITEMS HOT INICIO -->
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+        <h5 class="text-white pb-2">OFERTAS RELÁMPAGOS</h5>
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body mb">
+                        <div class="label-top shadow-sm">HOT</div>
+                        <div class="clearfix mb-3">
+                            <span class="float-start badge  bg-primary">ASUS Rog</span>
+                            <span class="float-end price-hp">$999.99</span>
+                        </div>
+                        <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem
+                            eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe,
+                            iste optio laudantium sed aliquam sequi.</h5>
+                        <div class="text-center my-4"> <a href="#" class="btn btn-primary">VER MÁS</a> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="label-top shadow-sm">HOT</div>
+                        <div class="clearfix mb-3">
+                            <span class="float-start badge  bg-primary">ASUS Rog</span>
+                            <span class="float-end price-hp">$999.99</span>
+                        </div>
+                        <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem
+                            eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe,
+                            iste optio laudantium sed aliquam sequi.</h5>
+                        <div class="text-center my-4"> <a href="#" class="btn btn-primary">VER MÁS</a> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="label-top shadow-sm">HOT</div>
+                        <div class="clearfix mb-3">
+                            <span class="float-start badge  bg-primary">ASUS Rog</span>
+                            <span class="float-end price-hp">$999.99</span>
+                        </div>
+                        <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem
+                            eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe,
+                            iste optio laudantium sed aliquam sequi.</h5>
+                        <div class="text-center my-4"> <a href="#" class="btn btn-primary">VER MÁS</a> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png"
+                        class="card-img-top" alt="...">
+                    <div class="label-top shadow-sm">HOT</div>
+                    <div class="card-body">
+                        <div class="clearfix mb-3">
+                            <span class="float-start badge  bg-primary">ASUS Rog</span>
+                            <span class="float-end price-hp">$999.99</span>
+                        </div>
+                        <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem
+                            eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe,
+                            iste optio laudantium sed aliquam sequi.</h5>
+                        <div class="text-center my-4"> <a href="./error.html" class="btn btn-primary">VER MÁS</a> </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- CARRUSEL ITEMS HOT FIN-->
+
+
+
+
+
+
+
+
+    <script src="./scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>
