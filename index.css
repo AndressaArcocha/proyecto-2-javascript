@@ -252,3 +252,14 @@
 .imgError {
     width: 100%;
 }
+.fotoNosotros {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    align-items: center;
+}
+
+.textoNosotros{
+    width: 125px;
+    margin-top: 25px;
+}
