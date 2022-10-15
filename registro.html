@@ -1,12 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Pagina de venta de articulos tecnologicos" />
+      <meta name="author" content="Andressa Barros Arcocha,Cristian Navarro, Enzo Dario Lobo Rodriguez
+        , Enzo David Ale Garcia, Matias Ortiz de Rozas, Pablo Javier Ismael, Maria Sofia Garbero " />
+      <meta name="keywords" content="Computadoras, Netbooks, Mouse, Teclados, Monitores" />
+    
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- Bootstrap icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+        <!-- ANIMATECSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
+        <!-- CUSTOM CSS -->
+        <link rel="stylesheet" href="registro.css">
+        <link rel="stylesheet" href="index.css">
+
+        <!-- FAVICON -->
+        <link rel="icon" type="image/jpg" href="" />
+        
+    
+        <title>Compu Store</title>
+    </head>
 <body>
+    <!-- NAVBAR INICIO-->
+    <section class="navbarIC">
+        <nav id="menu" class="navbar navbar-expand-lg navbar-dark">
+            <div class="container justify-content-around">
+                <a class="navbar-brand align animate__animated animate__heartBeat ms-3 bold" href="./Index.html">COMPUSTORE
+                    <img class="img-fluid" src="" alt="" width="150">
+                </a>
+                <!-- BUSCADOR-->
+                <div class="d-flex justify-content-center">
+                    <form class="d-flex ">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button type="button" class="btn-sm  btn-primary">
+                            <i class="bi bi-search"></i>
+                            <button type="button" class="btn-sm  btn-danger ms-2">
+                                <i class="bi bi-cart4"></i>
+
+                            </button>
+                </div>
+            </div>
+            </form>
+
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+                <div id="buttonNav" class="d-grid gap-2 d-lg-block animate__animated animate__heartBeat">
+                    <a href="./registro.html" class="btn btn-danger fw-bolder mx-lg-0 rounded-0 btn-border " role="button"
+                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sign In</a>
+                    <a href="./registro.html" class="btn btn-primary fw-bolder mx-lg- rounded-0 btn-border "
+                        role="button">Log In</a>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </section>
+
+        <div class="login-wrap">
+            <div class="login-html">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                <div class="login-form">
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <label for="user" class="label">Username</label>
+                            <input id="user" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Password</label>
+                            <input id="pass" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <input id="check" type="checkbox" class="check" checked>
+                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign In">
+                        </div>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <a href="#forgot">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <div class="sign-up-htm">
+
+                        <div class="group">
+                            <label for="name" class="label">Nombre</label>
+                            <input id="name" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="lastname" class="label">Apellido</label>
+                            <input id="lastname" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Password</label>
+                            <input id="pass" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Repeat Password</label>
+                            <input id="pass" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Email Address</label>
+                            <input id="pass" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign Up">
+                        </div>
+                        <div class="hr"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     
 </body>
 </html>
