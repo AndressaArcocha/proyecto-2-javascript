@@ -1,9 +1,26 @@
+const useradmin = {
+  email : 'admin@admin.com',
+  name : 'admin',
+  lastname: 'admin',
+  password : 'Renault19',
+  role : 'admin'
+}
+const isAdmin = [];
+isAdmin.push(useradmin);
+localStorage.setItem('isAdmin', JSON.stringify(isAdmin));
+// PRODUCTOS HARDCODEADOS
+
+productosDefault = [
+  {id:'1', img:'https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-Zeus-H510-Rgb_41187_1.jpeg', name:'Auricular Red Dragon', categoria:'HEADPHONES', descripcion:'Negro',precio:'2700'}
+]
+
 //DECLARACIÓN DE VARIABLES
 const tablaProductos = document.getElementById('TablaProductos');
 // FORM AGREGAR PRODUCTOS
 const formProductos = document.getElementById('FormProductos');
 const inputImgProductos = document.getElementById('InputImgProductos');
 const inputNameProductos = document.getElementById('InputNameProductos');
+const inputCatProductos = document.getElementById('InputCatProductos');
 const inputDescripcionProductos = document.getElementById(
   'InputDescripcionProductos'
 );
@@ -11,7 +28,9 @@ const inputPrecioProductos = document.getElementById('InputPrecioProductos');
 
 //INFO LOCAL STORAGE
 const userAdmin = JSON.parse(localStorage.getItem('isAdmin'));
-const productos = JSON.parse(localStorage.getItem('productos')) || [];
+const productos = JSON.parse(localStorage.getItem('productos')) || productosDefault;
+
+localStorage.setItem('productos', JSON.stringify(productos));
 
 //FUNCION PARA CONTROL DE ACCESO
 const redirect = (url) => {
@@ -69,6 +88,10 @@ showAdminName.innerHTML = `
               <input type="text" class="form-control" id="InputNameProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Categoría</label>
+              <input type="text" class="form-control" id="InputCatProductosE" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Descripción</label>
               <input type="text" class="form-control" id="InputDescripcionProductosE" aria-describedby="emailHelp">
             </div>
@@ -88,6 +111,7 @@ showAdminName.innerHTML = `
 const formProductosE = document.getElementById('FormEditProductos');
 const inputImgProductosE = document.getElementById('InputImgProductosE');
 const inputNameProductosE = document.getElementById('InputNameProductosE');
+const inputCatProductosE = document.getElementById('InputCatProductosE');
 const inputDescripcionProductosE = document.getElementById(
   'InputDescripcionProductosE'
 );
@@ -99,26 +123,27 @@ const createProducts = (productos) => {
     .map(
       (producto, index) =>
         `
-    <tr>
+    <tr table-warning>
       <td>${++index}</td>
       <td class="w-25"><img src="${producto.img}" alt="${producto.name}" class="w-25"/></td>
       <td>${producto.name}</td>
+      <td>${producto.categoria}</td>
       <td>${producto.descripcion}</td>
       <td>${producto.precio}</td>
       <td>
       <button type="button" onclick="uploadFormEditProduct(${producto.id})" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <i class="fas fa-user-edit"></i></button>
-      <button type="button" onclick="deleteProduct(${
-        producto.id
-      })" class="btn btn-sm btn-danger">
+      <button type="button" onclick="eliminarProducto(${producto.id})" class="btn btn-sm btn-danger">
       <i class="fas fa-trash-alt"></i></button>
+      <button type="button" onclick="publishProduct(${producto.id})" class="btn btn-sm btn-success">
+      <i class="fas fa-square-check"></i></button>
       </td>
     </tr>
   `
     )
     .join('');
 };
-
+// FUNCION MOSTRAR PRODUCTOS
 const displayProducts = () => {
   const productosLocalStorage = JSON.parse(localStorage.getItem('productos')) || [];
   const productsAvailable = productosLocalStorage.filter(
@@ -128,11 +153,13 @@ const displayProducts = () => {
 };
 displayProducts();
 
+
 formProductos.onsubmit = (event) => {
   event.preventDefault();
 
   const img = inputImgProductos.value;
   const name = inputNameProductos.value;
+  const categoria = inputCatProductos.value;
   const descripcion = inputDescripcionProductos.value;
   const precio = inputPrecioProductos.value;
 
@@ -140,23 +167,48 @@ formProductos.onsubmit = (event) => {
     id: idRandom(),
     img,
     name,
+    categoria,
     descripcion,
     precio,
+    publish: false,
   });
 
   localStorage.setItem('productos', JSON.stringify(productos));
-  swal('Producto guardado con éxito', 'success');
+  swal('Producto guardado con éxito', 'Felicidades','success');
   formProductos.reset();
   displayProducts();
   bootstrap.Modal.getInstance(AgregarProducto).hide();
 };
 
-const deleteProduct = (id) => {
-  const updateProducts = productos.map((producto) =>
-    producto.id === id ? { ...producto, deleteAt: new Date() } : producto
-  );
-  localStorage.setItem('productos', JSON.stringify(updateProducts));
-  displayProducts();
+// const deleteProduct = (id) => {
+//   const updateProducts = productos.map((producto) =>
+//   producto.id === id ? { ...producto, deleteAt: new Date() } : producto
+//   );
+//   localStorage.setItem('productos', JSON.stringify(updateProducts));
+//   swal('Producto borrado con éxito','Felicitaciones', 'success');
+//   displayProducts();
+// };
+
+// const publishProduct = (id) => {
+//   const updateProducts = productos.map((producto) =>
+//   producto.id === id ? { ...producto, publish: !publish } : producto
+//   );
+//   localStorage.setItem('productos', JSON.stringify(updateProducts));
+//   swal('Producto publicado con éxito','Felicitaciones', 'success');
+//   displayProducts();
+// };
+
+//FUNCION PARA ELIMINAR PRODUCTOS 
+const eliminarProducto = (id) => {
+productos.forEach((producto) => {
+if (producto.id === id) 
+//    producto.eliminado= true
+    producto.deleteAt= new Date()
+}
+);
+localStorage.setItem('productos', JSON.stringify(productos));
+swal('Producto borrado con éxito','Felicitaciones', 'success');
+displayProducts();
 };
 
 let idProductEdit;
@@ -164,6 +216,7 @@ const uploadFormEditProduct = (id) => {
   const producto = productos.find(producto => producto.id === id);
   inputImgProductosE.value = producto.img;
   inputNameProductosE.value = producto.name;
+  inputCatProductosE.value = producto.categoria;
   inputDescripcionProductosE.value = producto.descripcion;
   inputPrecioProductosE.value = producto.precio;
   idProductEdit = id;
@@ -174,16 +227,30 @@ formProductosE.onsubmit = (event) => {
 
   const img = inputImgProductosE.value;
   const name = inputNameProductosE.value;
+  const categoria = inputCatProductosE.value;
   const descripcion = inputDescripcionProductosE.value;
   const precio = inputPrecioProductosE.value;
 
   const updateProducts = productos.map((producto) =>
-    producto.id === idProductEdit ? { ...producto, img, name, descripcion, precio } : producto
+    producto.id === idProductEdit ? { ...producto, img, name,categoria, descripcion, precio } : producto
   );
 
   localStorage.setItem('productos', JSON.stringify(updateProducts));
-  swal('Producto editado con éxito', 'success');
+  swal('Producto editado con éxito','Felicitaciones', 'success');
   formProductosE.reset();
   displayProducts();
   bootstrap.Modal.getInstance(exampleModal).hide();
 };
+
+formSearch.onsubmit = (e) => {
+  e.preventDefault();
+  const term = inputSearch.value;
+  const searchProducts = productos.filter(producto => 
+    producto.name.toLowerCase().includes(term.toLowerCase())
+  );
+  displayProducts(searchProducts);
+}
+
+const clearSearch = () => {
+  displayProducts(productos);
+}
