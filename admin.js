@@ -133,7 +133,7 @@ const createProducts = (productos) => {
       <td>
       <button type="button" onclick="uploadFormEditProduct(${producto.id})" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <i class="fas fa-user-edit"></i></button>
-      <button type="button" onclick="deleteProduct(${producto.id})" class="btn btn-sm btn-danger">
+      <button type="button" onclick="eliminarProducto(${producto.id})" class="btn btn-sm btn-danger">
       <i class="fas fa-trash-alt"></i></button>
       <button type="button" onclick="publishProduct(${producto.id})" class="btn btn-sm btn-success">
       <i class="fas fa-square-check"></i></button>
@@ -180,36 +180,36 @@ formProductos.onsubmit = (event) => {
   bootstrap.Modal.getInstance(AgregarProducto).hide();
 };
 
-const deleteProduct = (id) => {
-  const updateProducts = productos.map((producto) =>
-  producto.id === id ? { ...producto, deleteAt: new Date() } : producto
-  );
-  localStorage.setItem('productos', JSON.stringify(updateProducts));
-  swal('Producto borrado con éxito','Felicitaciones', 'success');
-  displayProducts();
-};
-
-const publishProduct = (id) => {
-  const updateProducts = productos.map((producto) =>
-  producto.id === id ? { ...producto, publish: !publish } : producto
-  );
-  localStorage.setItem('productos', JSON.stringify(updateProducts));
-  swal('Producto publicado con éxito','Felicitaciones', 'success');
-  displayProducts();
-};
-
-// FUNCION PARA ELIMINAR PRODUCTOS 
-// const eliminarProducto = (id) => {
-// productos.forEach((producto) => {
-// if (producto.id == id) 
-//     producto.eliminado= true
-//     producto.deleteAt= new Date()
-// }
-// );
-// localStorage.setItem('productos', JSON.stringify(productos));
-// swal('Producto borrado con éxito','Felicitaciones', 'success');
-// displayProducts();
+// const deleteProduct = (id) => {
+//   const updateProducts = productos.map((producto) =>
+//   producto.id === id ? { ...producto, deleteAt: new Date() } : producto
+//   );
+//   localStorage.setItem('productos', JSON.stringify(updateProducts));
+//   swal('Producto borrado con éxito','Felicitaciones', 'success');
+//   displayProducts();
 // };
+
+// const publishProduct = (id) => {
+//   const updateProducts = productos.map((producto) =>
+//   producto.id === id ? { ...producto, publish: !publish } : producto
+//   );
+//   localStorage.setItem('productos', JSON.stringify(updateProducts));
+//   swal('Producto publicado con éxito','Felicitaciones', 'success');
+//   displayProducts();
+// };
+
+//FUNCION PARA ELIMINAR PRODUCTOS 
+const eliminarProducto = (id) => {
+productos.forEach((producto) => {
+if (producto.id === id) 
+//    producto.eliminado= true
+    producto.deleteAt= new Date()
+}
+);
+localStorage.setItem('productos', JSON.stringify(productos));
+swal('Producto borrado con éxito','Felicitaciones', 'success');
+displayProducts();
+};
 
 let idProductEdit;
 const uploadFormEditProduct = (id) => {
