@@ -31,10 +31,10 @@ const divContainerProductos = document.querySelector('#ContainerProductos');
 
 if (!userLogged) {
   divShowbtnNavbar.innerHTML = `
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Login">
+  <button type="button" class="btn btn-primary" >
     Login
   </button>
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Registro">
+  <button type="button" class="btn btn-success" >
     Registro
   </button>
   `;
@@ -63,11 +63,12 @@ formRegistro.onsubmit = (event) => {
   const lastName = inputLastNameRegistro.value;
   const email = inputEmailRegistro.value;
   const pass = inputPassRegistro.value;
-
+  
   if (!regexPass.test(pass)) {
     console.log(regexPass.test(pass));
     pPassInvalid.classList.remove('d-none');
     return;
+
   }
 
   const findUser = users.find((user) => user.email === email);
@@ -84,10 +85,11 @@ formRegistro.onsubmit = (event) => {
     });
 
     localStorage.setItem('users', JSON.stringify(users));
-    swal('Usuario registrado con éxito', 'success');
+    localStorage.setItem('userLogged', JSON.stringify(users));
+
     formRegistro.reset();
-    let modal = bootstrap.Modal.getInstance(Registro);
-    modal.hide();
+    redirect('./user.html');
+
   } else {
     pAlreadyEmail.classList.remove('d-none');
     return;
@@ -130,29 +132,29 @@ const logOut = () => {
   }, 1000);
 };
 
-const displayProducts = (productos) => {
-  const productsAvailable = productos.filter(
-    (producto) => !producto.hasOwnProperty('deleteAt')
-  );
-  divContainerProductos.innerHTML = productsAvailable
-    .map(
-      (producto) =>
-        `
-        <div class="card" style="width: 18rem;">
-        <img src="${producto.img}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${producto.name}</h5>
-          <p class="card-text">${producto.descripcion}
-          <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span>
-          </p>
-          <a href="#" class="btn btn-primary">Comprar</a>
-        </div>
-      </div>
-  `
-    )
-    .join('');
-};
-displayProducts(productos);
+// const displayProducts = (productos) => {
+//   const productsAvailable = productos.filter(
+//     (producto) => !producto.hasOwnProperty('deleteAt')
+//   );
+//   divContainerProductos.innerHTML = productsAvailable
+//     .map(
+//       (producto) =>
+//         `
+//         <div class="card" style="width: 18rem;">
+//         <img src="${producto.img}" class="card-img-top" alt="...">
+//         <div class="card-body">
+//           <h5 class="card-title">${producto.name}</h5>
+//           <p class="card-text">${producto.descripcion}
+//           <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span>
+//           </p>
+//           <a href="#" class="btn btn-primary">Comprar</a>
+//         </div>
+//       </div>
+//   `
+//     )
+//     .join('');
+// };
+// displayProducts(productos);
 
 formSearch.onsubmit = (e) => {
   e.preventDefault();
