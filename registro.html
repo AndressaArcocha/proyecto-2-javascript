@@ -44,8 +44,11 @@
                             <i class="bi bi-search"></i>
                             <button type="button" class="btn-sm  btn-danger ms-2">
                                 <i class="bi bi-cart4"></i>
-
                             </button>
+
+                            <div id="divShowbtnNavbar" class="">
+          
+                            </div>
                 </div>
             </div>
             </form>
@@ -67,58 +70,53 @@
                 <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
                 <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
                 <div class="login-form">
-                    <div class="sign-in-htm">
-                        <div class="group">
-                            <label for="user" class="label">Username</label>
-                            <input id="user" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Sign In">
-                        </div>
-                        <div class="hr"></div>
-                        <div class="foot-lnk">
-                            <a href="#forgot">Forgot Password?</a>
-                        </div>
+                    <div id="Login" class="sign-in-htm" tabindex="-1">
+                        <form id="FormularioLogin">
+                            <form id="FormularioLogin">
+                                <div class="mb-3">
+                                  <label for="exampleInputEmail1" class="form-label">Email</label>
+                                  <input type="email" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp" autocomplete="off">
+                                  <p id="noExiste" class="d-none text-danger">Las credenciales son inválidas</p>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                  <input type="password" class="form-control" id="InputPasswordLogin" autocomplete="off">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Inicie Sesión</button>
+                              </form>
                     </div>
-                    <div class="sign-up-htm">
-
-                        <div class="group">
-                            <label for="name" class="label">Nombre</label>
-                            <input id="name" type="text" class="input">
+                    <div id="Registro" class="sign-up-htm" tabindex="-1">
+                        <form id="FormRegistro">
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                              <input type="text" class="form-control" id="InputNameRegistro" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Apellido</label>
+                              <input type="text" class="form-control" id="InputLastNameRegistro" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Email</label>
+                              <input type="email" class="form-control" id="InputEmailRegistro" aria-describedby="emailHelp" autocomplete="off">
+                              <p id="alreadyEmail" class="d-none text-danger">El email ya se encuentra registrado</p>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                              <input type="password" class="form-control" id="InputPasswordRegistro" autocomplete="off">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Registrarse</button>
+                          </form>
                         </div>
-                        <div class="group">
-                            <label for="lastname" class="label">Apellido</label>
-                            <input id="lastname" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Repeat Password</label>
-                            <input id="pass" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Email Address</label>
-                            <input id="pass" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Sign Up">
-                        </div>
-                        <div class="hr"></div>
-
+                    </form>
                     </div>
+                </div>
+
                 </div>
             </div>
         </div>
     
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script src="./index.js"></script>      
 </body>
 </html>
