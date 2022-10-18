@@ -36,7 +36,7 @@
             data-bs-target="#AgregarProducto">Agregar un producto</button>
         <form id="formSearch" class="d-flex mt-3 mb-5">
             <input id="inputSearch" class="form-control me-2" type="search" placeholder="Escriba el nombre del producto" aria-label="Search">
-            <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button>
+            <button class="btn btn-lg btn-outline-success" type="submit" onclick="">Buscar</button>
             <button class="btn btn-lg btn-outline-dark ms-3" type="button" onclick="clearSearch()">X</button>
         </form>    
         <div class="row my-5">
@@ -71,28 +71,28 @@
                 <div class="modal-body">
                     <form id="FormProductos">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Imágen</label>
+                            <label for="dir_img" class="form-label">Imágen</label>
                             <input type="text" class="form-control" id="InputImgProductos" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nombre</label><span
+                            <label for="prod" class="form-label">Nombre</label><span
                                 class="text-danger">*</span>
                             <input type="text" class="form-control" id="InputNameProductos" aria-describedby="emailHelp"
                                 required>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Categoría</label><span
+                            <label for="cat" class="form-label">Categoría</label><span
                                 class="text-danger">*</span>
                             <input type="text" class="form-control" id="InputCatProductos" aria-describedby="emailHelp"
                                 required>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Descripción</label>
+                            <label for="desc" class="form-label">Descripción</label>
                             <input type="text" class="form-control" id="InputDescripcionProductos"
-                                aria-describedby="emailHelp">
+                                aria-describedby="emailHelp" required>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Precio</label><span
+                            <label for="precio" class="form-label">Precio</label><span
                                 class="text-danger">*</span>
                             <input type="texto" class="form-control" id="InputPrecioProductos"
                                 aria-describedby="emailHelp" autocomplete="off" required>
@@ -103,7 +103,7 @@
                 </div>
             </div>
         </div>
-
+<!-- SCRIPTS POPPER.JS Y BOOTSTRAP 5.0.2 -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
             integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
             crossorigin="anonymous"></script>

@@ -1,3 +1,4 @@
+//USER ADMIN HARDOCODE
 const useradmin = {
   email : 'admin@admin.com',
   name : 'admin',
@@ -8,15 +9,19 @@ const useradmin = {
 const isAdmin = [];
 isAdmin.push(useradmin);
 localStorage.setItem('isAdmin', JSON.stringify(isAdmin));
-// PRODUCTOS HARDCODEADOS
 
+// PRODUCTOS HARDCODE
 productosDefault = [
-  {id:'1', img:'https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-Zeus-H510-Rgb_41187_1.jpeg', name:'Auricular Red Dragon', categoria:'HEADPHONES', descripcion:'Negro',precio:'2700'}
+  {id:1111, img:'https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-Zeus-H510-Rgb_41187_1.jpeg', name:'Auricular', categoria:'HEADPHONES', descripcion:'Negro',precio:'4500', publish: false},
+  {id:2222, img: 'https://www.venex.com.ar/products_images/1643915198_cetrophorus-rgb.png', name: 'Ratón', categoria: 'MOUSE', descripcion:'Negro', precio:'3500', publish: false},
+  {id:3333, img:'https://mexx-img-2019.s3.amazonaws.com/38539_1.jpeg', name:'Teclado', categoria: 'KEYBOARD', descripcion: 'Negro', precio:'5500', publish: false}
 ]
+
 
 //DECLARACIÓN DE VARIABLES
 const tablaProductos = document.getElementById('TablaProductos');
-// FORM AGREGAR PRODUCTOS
+
+// FORMULARIO AGREGAR PRODUCTOS
 const formProductos = document.getElementById('FormProductos');
 const inputImgProductos = document.getElementById('InputImgProductos');
 const inputNameProductos = document.getElementById('InputNameProductos');
@@ -26,7 +31,7 @@ const inputDescripcionProductos = document.getElementById(
 );
 const inputPrecioProductos = document.getElementById('InputPrecioProductos');
 
-//INFO LOCAL STORAGE
+//INFORMACION LOCAL STORAGE
 const userAdmin = JSON.parse(localStorage.getItem('isAdmin'));
 const productos = JSON.parse(localStorage.getItem('productos')) || productosDefault;
 
@@ -55,7 +60,7 @@ function idRandom() {
   return new Date().getTime();
 }
 
-//HTML
+//AGREGAR HTML
 const showAdminName = document.querySelector('#showAdminName');
 showAdminName.innerHTML = `
 <div class="dropdown">
@@ -80,34 +85,35 @@ showAdminName.innerHTML = `
         <div class="modal-body">
           <form id="FormEditProductos">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Imágen</label>
-              <input type="text" class="form-control" id="InputImgProductosE" aria-describedby="emailHelp">
+              <label for="dir_img" class="form-label">Imágen</label>
+              <input type="text" class="form-control" id="InputImgProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Nombre</label><span class="text-danger">*</span>
+              <label for="prod" class="form-label">Nombre</label><span class="text-danger">*</span>
               <input type="text" class="form-control" id="InputNameProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Categoría</label>
-              <input type="text" class="form-control" id="InputCatProductosE" aria-describedby="emailHelp">
+              <label for="cat" class="form-label">Categoría</label>
+              <input type="text" class="form-control" id="InputCatProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Descripción</label>
-              <input type="text" class="form-control" id="InputDescripcionProductosE" aria-describedby="emailHelp">
+              <label for="desc" class="form-label">Descripción</label>
+              <input type="text" class="form-control" id="InputDescripcionProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Precio</label><span class="text-danger">*</span>
+              <label for="precio" class="form-label">Precio</label><span class="text-danger">*</span>
               <input type="texto" class="form-control" id="InputPrecioProductosE" aria-describedby="emailHelp" autocomplete="off" required>
             </div>
-            <button type="submit" class="btn btn-primary">Editar</button>
-          </form>
+            <button type="submit" class="btn btn-outline-primary">Editar</button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </form>
         </div>
       </div>
     </div>
   </div>
 `;
 
-// FORM EDITAR PRODUCTOS
+// VARIABLES FORMULARIO EDITAR PRODUCTOS
 const formProductosE = document.getElementById('FormEditProductos');
 const inputImgProductosE = document.getElementById('InputImgProductosE');
 const inputNameProductosE = document.getElementById('InputNameProductosE');
@@ -117,7 +123,8 @@ const inputDescripcionProductosE = document.getElementById(
 );
 const inputPrecioProductosE = document.getElementById('InputPrecioProductosE');
 
-//FUNCIONES
+
+//FUNCION CREAR PRODUCTOS
 const createProducts = (productos) => {
   tablaProductos.innerHTML = productos
     .map(
@@ -142,7 +149,8 @@ const createProducts = (productos) => {
   `
     )
     .join('');
-};
+}
+
 // FUNCION MOSTRAR PRODUCTOS
 const displayProducts = () => {
   const productosLocalStorage = JSON.parse(localStorage.getItem('productos')) || [];
@@ -153,7 +161,7 @@ const displayProducts = () => {
 };
 displayProducts();
 
-
+// INGRESAR INFORMACION DEL PRODUCTO DEL FORMULARIO AL LOCAL STORAGE
 formProductos.onsubmit = (event) => {
   event.preventDefault();
 
@@ -189,20 +197,10 @@ formProductos.onsubmit = (event) => {
 //   displayProducts();
 // };
 
-// const publishProduct = (id) => {
-//   const updateProducts = productos.map((producto) =>
-//   producto.id === id ? { ...producto, publish: !publish } : producto
-//   );
-//   localStorage.setItem('productos', JSON.stringify(updateProducts));
-//   swal('Producto publicado con éxito','Felicitaciones', 'success');
-//   displayProducts();
-// };
-
 //FUNCION PARA ELIMINAR PRODUCTOS 
 const eliminarProducto = (id) => {
 productos.forEach((producto) => {
 if (producto.id === id) 
-//    producto.eliminado= true
     producto.deleteAt= new Date()
 }
 );
@@ -210,6 +208,18 @@ localStorage.setItem('productos', JSON.stringify(productos));
 swal('Producto borrado con éxito','Felicitaciones', 'success');
 displayProducts();
 };
+
+//FUNCION PARA PUBLICAR PRODUCTOS 
+const publishProduct = (id) => {
+  productos.forEach((producto) => {
+  if (producto.id === id) 
+      producto.publish = true;
+  }
+  );
+  localStorage.setItem('productos', JSON.stringify(productos));
+  swal('Producto publicado con éxito','Felicitaciones', 'success');
+  displayProducts();
+  };
 
 let idProductEdit;
 const uploadFormEditProduct = (id) => {
@@ -222,6 +232,7 @@ const uploadFormEditProduct = (id) => {
   idProductEdit = id;
 };
 
+// FUNCION EDITAR PRODUCTOS
 formProductosE.onsubmit = (event) => {
   event.preventDefault();
 
@@ -242,6 +253,7 @@ formProductosE.onsubmit = (event) => {
   bootstrap.Modal.getInstance(exampleModal).hide();
 };
 
+// FUNCION BUSCADOR
 formSearch.onsubmit = (e) => {
   e.preventDefault();
   const term = inputSearch.value;
