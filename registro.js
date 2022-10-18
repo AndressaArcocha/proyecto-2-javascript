@@ -85,11 +85,9 @@ formRegistro.onsubmit = (event) => {
     });
 
     localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('userLogged', JSON.stringify(users));
-
+    swal('Usuario registrado con éxito','Felicitaciones','success');
     formRegistro.reset();
-    redirect('./user.html');
-
+    let modal = bootstrap.Modal.getInstance(Registro);
   } else {
     pAlreadyEmail.classList.remove('d-none');
     return;
