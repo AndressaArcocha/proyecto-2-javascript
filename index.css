@@ -874,7 +874,11 @@
     height: 80px;
     color: #fff
 }
+.fondo{
+    background: #333333;
+  }
 
+/* CSS - ANDRESSA*/
 .contacto {
     background-color: white;
     border-radius: 2px;
@@ -889,7 +893,68 @@
     align-items: center;
 }
 
-.fondo{
-  background: #333333;
+/*CSS - SOFIA*/
+.bodyLogin{
+    text-align: center;
+    color: rgb(15, 14, 14);
+    background-color: rgb(228, 223, 223);
+     padding: 50px;
+     font-size: 30px;
 }
+
+
+.login{
+    background-image: linear-gradient(to bottom right,#000000, #000000 );
+    padding: 5px;
+    margin: 15px;
+    text-align: center;                      
+}
+.login h6{
+    color: #fff;
+    margin-bottom: 45px;
+}
+.login button i{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+.login button{
+    width: 100%;
+    margin: 15px 0px;
+    padding: 10px;
+    box-shadow: 0 0 3px  (0, 0, 0, .2);
+    cursor: pointer;
+    position: relative;
+}
+.login .fb{
+    background: #3b5999;
+    border-style: none;
+    color: #fff;        
+}
+.login .tw{
+    background: #55acef;
+    border-style: none;
+    color: #fff;
+}
+.login .ig{
+  background: #d43338;
+    border-style: none;
+    color: #fff;  
+}
+@media only screen and (max-width: 540px){
+.login-container{
+display: block;
+}
+
+.register, .login{
+flex: none;
+}
+
+.register::after{
+top: unset;
+bottom: -25px;
+left: 50%;
+transform: translateX(-50%) rotate(90deg);
+}
+}     
 
