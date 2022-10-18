@@ -31,10 +31,10 @@ const divContainerProductos = document.querySelector('#ContainerProductos');
 
 if (!userLogged) {
   divShowbtnNavbar.innerHTML = `
-  <button type="button" class="btn btn-primary" >
+  <button type="button" class="d-none btn btn-primary" >
     Login
   </button>
-  <button type="button" class="btn btn-success" >
+  <button type="button" class="d-none btn btn-success" >
     Registro
   </button>
   `;
