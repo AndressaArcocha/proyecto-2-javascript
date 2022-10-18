@@ -1,20 +1,11 @@
-//USER ADMIN HARDOCODE
-const useradmin = {
-  email : 'admin@admin.com',
-  name : 'admin',
-  lastname: 'admin',
-  password : 'Renault19',
-  role : 'admin'
-}
-const isAdmin = [];
-isAdmin.push(useradmin);
-localStorage.setItem('isAdmin', JSON.stringify(isAdmin));
-
 // PRODUCTOS HARDCODE
 productosDefault = [
   {id:1111, img:'https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-Zeus-H510-Rgb_41187_1.jpeg', name:'Auricular', categoria:'HEADPHONES', descripcion:'Negro',precio:'4500', publish: false},
   {id:2222, img: 'https://www.venex.com.ar/products_images/1643915198_cetrophorus-rgb.png', name: 'Ratón', categoria: 'MOUSE', descripcion:'Negro', precio:'3500', publish: false},
-  {id:3333, img:'https://mexx-img-2019.s3.amazonaws.com/38539_1.jpeg', name:'Teclado', categoria: 'KEYBOARD', descripcion: 'Negro', precio:'5500', publish: false}
+  {id:3333, img:'https://mexx-img-2019.s3.amazonaws.com/38539_1.jpeg', name:'Teclado', categoria: 'KEYBOARD', descripcion: 'Negro', precio:'5500', publish: false},
+  {id:4444, img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl27auufAofteMhRNQfeBCeQD3uL5nB-X42w&usqp=CAU', name:'Auricular', categoria: 'HEADPHONES', descripcion: 'Blanco y Rosa', precio:'4700', publish: false},
+  {id:5555, img:'http://www.thekingoftechnology.com/images/1647528060983.jpg', name:'Ratón', categoria: 'MOUSE', descripcion: 'Blanco', precio:'3700', publish: false},
+  {id:6666, img:'https://mexx-img-2019.s3.amazonaws.com/39014_1.jpeg', name:'Teclado', categoria: 'KEYBOARD', descripcion: 'Blanco', precio:'5700', publish: false}
 ]
 
 

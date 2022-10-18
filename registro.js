@@ -1,3 +1,17 @@
+//USER ADMIN HARDOCODE
+const useradmin = {
+  id:'1111',
+  email : 'admin@admin.com',
+  name : 'admin',
+  lastname: 'admin',
+  pass : 'Renault19',
+  role : 'admin',
+  delete: false
+}
+//const users = [];
+//users.push(useradmin);
+//localStorage.setItem('users', JSON.stringify(users));
+
 //FORMULARIO DE REGISTRO
 const formRegistro = document.getElementById('FormRegistro');
 const inputNameRegistro = document.getElementById('InputNameRegistro');
@@ -21,7 +35,10 @@ const formSearch = document.getElementById('formSearch');
 const inputSearch = document.getElementById('inputSearch');
 
 //INFO LOCAL STORAGE
-const users = JSON.parse(localStorage.getItem('users')) || [];
+const users = []
+users.push(useradmin);
+localStorage.setItem('users', JSON.stringify(users));
+JSON.parse(localStorage.getItem('users'));
 const userLogged = JSON.parse(localStorage.getItem('userLogged'));
 const productos = JSON.parse(localStorage.getItem('productos')) || [];
 
