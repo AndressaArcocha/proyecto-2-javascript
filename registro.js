@@ -107,11 +107,9 @@ formLogin.onsubmit = (e) => {
     return;
   } else if (findUser.role === 'admin') {
     localStorage.setItem('isAdmin', JSON.stringify(findUser));
-    swal('Bienvenido Admin');
     redirect('./admin.html');
   } else {
     localStorage.setItem('userLogged', JSON.stringify(findUser));
-    swal('Bienvenido');
     //Delay para la redirection
     redirect('./user.html');
   }
@@ -130,29 +128,29 @@ const logOut = () => {
   }, 1000);
 };
 
-// const displayProducts = (productos) => {
-//   const productsAvailable = productos.filter(
-//     (producto) => !producto.hasOwnProperty('deleteAt')
-//   );
-//   divContainerProductos.innerHTML = productsAvailable
-//     .map(
-//       (producto) =>
-//         `
-//         <div class="card" style="width: 18rem;">
-//         <img src="${producto.img}" class="card-img-top" alt="...">
-//         <div class="card-body">
-//           <h5 class="card-title">${producto.name}</h5>
-//           <p class="card-text">${producto.descripcion}
-//           <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span>
-//           </p>
-//           <a href="#" class="btn btn-primary">Comprar</a>
-//         </div>
-//       </div>
-//   `
-//     )
-//     .join('');
-// };
-// displayProducts(productos);
+const displayProducts = (productos) => {
+  const productsAvailable = productos.filter(
+    (producto) => !producto.hasOwnProperty('deleteAt')
+  );
+  divContainerProductos.innerHTML = productsAvailable
+    .map(
+      (producto) =>
+        `
+        <div class="card" style="width: 18rem;">
+        <img src="${producto.img}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${producto.name}</h5>
+          <p class="card-text">${producto.descripcion}
+          <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span>
+          </p>
+          <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
+      </div>
+  `
+    )
+    .join('');
+};
+displayProducts(productos);
 
 formSearch.onsubmit = (e) => {
   e.preventDefault();
