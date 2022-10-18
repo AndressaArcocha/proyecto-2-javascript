@@ -159,7 +159,7 @@ const createProducts = (productos) => {
       <td class="w-25"><img src="${producto.img}" alt="${
           producto.name
         }" class="w-25"/></td>
-      <td>${producto.name}</td>
+      <td class="w-25">${producto.name}</td>
       <td>${producto.categoria}</td>
       <td>${producto.descripcion}</td>
       <td>${producto.precio}</td>
@@ -260,13 +260,16 @@ const publishProduct = (id) => {
 
 let idProductEdit;
 const uploadFormEditProduct = (id) => {
-  const producto = productos.find((producto) => producto.id === id);
-  producto.img=inputImgProductosE.value
-  producto.name=inputNameProductosE.value;
-  producto.categoria=inputCatProductosE.value;
-  producto.descripcion=inputDescripcionProductosE.value ;
-  producto.precio=inputPrecioProductosE.value ;
-  id=idProductEdit ;
+  
+  let producto = productos.find((producto) => producto.id === id);
+  inputImgProductosE.value=producto.img
+  inputNameProductosE.value = producto.name;
+  inputCatProductosE.value = producto.categoria;
+  inputDescripcionProductosE.value = producto.descripcion;
+  inputPrecioProductosE.value = producto.precio;
+  idProductEdit = id;
+
+  displayProducts()
 };
 
 // FUNCION EDITAR PRODUCTOS
@@ -279,13 +282,16 @@ formProductosE.onsubmit = (event) => {
   const descripcion = inputDescripcionProductosE.value;
   const precio = inputPrecioProductosE.value;
 
-  const updateProducts = productos.map((producto) =>
-    producto.id === idProductEdit
-      ? { ...producto, img, name, categoria, descripcion, precio }
-      : producto
-  );
+  id=idProductEdit ;
+  let producto = productos.find((producto) => producto.id === id);
+  
+  producto.img=inputImgProductosE.value
+  producto.name=inputNameProductosE.value ;
+  producto.categoria=inputCatProductosE.value ;
+  producto.descripcion=inputDescripcionProductosE.value
+  producto.precio=inputPrecioProductosE.value ;
 
-  localStorage.setItem("productos", JSON.stringify(updateProducts));
+ localStorage.setItem("productos", JSON.stringify(productos));
   swal("Producto editado con éxito", "Felicitaciones", "success");
   formProductosE.reset();
   displayProducts();
