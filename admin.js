@@ -261,12 +261,12 @@ const publishProduct = (id) => {
 let idProductEdit;
 const uploadFormEditProduct = (id) => {
   const producto = productos.find((producto) => producto.id === id);
-  inputImgProductosE.value = producto.img;
-  inputNameProductosE.value = producto.name;
-  inputCatProductosE.value = producto.categoria;
-  inputDescripcionProductosE.value = producto.descripcion;
-  inputPrecioProductosE.value = producto.precio;
-  idProductEdit = id;
+  producto.img=inputImgProductosE.value
+  producto.name=inputNameProductosE.value;
+  producto.categoria=inputCatProductosE.value;
+  producto.descripcion=inputDescripcionProductosE.value ;
+  producto.precio=inputPrecioProductosE.value ;
+  id=idProductEdit ;
 };
 
 // FUNCION EDITAR PRODUCTOS
