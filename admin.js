@@ -130,7 +130,8 @@ const createProducts = (productos) => {
     .map(
       (producto, index) =>
         `
-    <tr table-warning>
+        <div>
+    <tr id='tablerow${producto.id}' class='alert'>
       <td>${++index}</td>
       <td class="w-25"><img src="${producto.img}" alt="${producto.name}" class="w-25"/></td>
       <td>${producto.name}</td>
@@ -146,9 +147,19 @@ const createProducts = (productos) => {
       <i class="fas fa-square-check"></i></button>
       </td>
     </tr>
+    </div>
   `
     )
     .join('');
+
+  productos.forEach((producto) => {
+    let element = document.querySelector(`#tablerow${producto.id}`)
+    console.log(element)
+    if (producto.publish == true && element!=null) 
+    element.className='alert alert-danger';
+     }
+    );  
+
 }
 
 // FUNCION MOSTRAR PRODUCTOS
@@ -158,6 +169,7 @@ const displayProducts = () => {
     (producto) => !producto.hasOwnProperty('deleteAt')
   );
   createProducts(productsAvailable);
+
 };
 displayProducts();
 
@@ -209,6 +221,7 @@ swal('Producto borrado con éxito','Felicitaciones', 'success');
 displayProducts();
 };
 
+
 //FUNCION PARA PUBLICAR PRODUCTOS 
 const publishProduct = (id) => {
   productos.forEach((producto) => {
@@ -216,10 +229,19 @@ const publishProduct = (id) => {
       producto.publish = true;
   }
   );
+
   localStorage.setItem('productos', JSON.stringify(productos));
   swal('Producto publicado con éxito','Felicitaciones', 'success');
   displayProducts();
+  
   };
+
+
+
+
+
+
+
 
 let idProductEdit;
 const uploadFormEditProduct = (id) => {
