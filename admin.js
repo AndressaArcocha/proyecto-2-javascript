@@ -1,41 +1,65 @@
 //USER ADMIN HARDOCODE
 const useradmin = {
-  email : 'admin@admin.com',
-  name : 'admin',
-  lastname: 'admin',
-  password : 'Renault19',
-  role : 'admin'
-}
+  email: "admin@admin.com",
+  name: "admin",
+  lastname: "admin",
+  password: "Renault19",
+  role: "admin",
+};
 const isAdmin = [];
 isAdmin.push(useradmin);
-localStorage.setItem('isAdmin', JSON.stringify(isAdmin));
+localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
 
 // PRODUCTOS HARDCODE
 productosDefault = [
-  {id:1111, img:'https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-Zeus-H510-Rgb_41187_1.jpeg', name:'Auricular', categoria:'HEADPHONES', descripcion:'Negro',precio:'4500', publish: false},
-  {id:2222, img: 'https://www.venex.com.ar/products_images/1643915198_cetrophorus-rgb.png', name: 'Ratón', categoria: 'MOUSE', descripcion:'Negro', precio:'3500', publish: false},
-  {id:3333, img:'https://mexx-img-2019.s3.amazonaws.com/38539_1.jpeg', name:'Teclado', categoria: 'KEYBOARD', descripcion: 'Negro', precio:'5500', publish: false}
-]
-
+  {
+    id: 1111,
+    img: "https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-Zeus-H510-Rgb_41187_1.jpeg",
+    name: "Auricular",
+    categoria: "HEADPHONES",
+    descripcion: "Negro",
+    precio: "4500",
+    publish: false,
+  },
+  {
+    id: 2222,
+    img: "https://www.venex.com.ar/products_images/1643915198_cetrophorus-rgb.png",
+    name: "Ratón",
+    categoria: "MOUSE",
+    descripcion: "Negro",
+    precio: "3500",
+    publish: false,
+  },
+  {
+    id: 3333,
+    img: "https://mexx-img-2019.s3.amazonaws.com/38539_1.jpeg",
+    name: "Teclado",
+    categoria: "KEYBOARD",
+    descripcion: "Negro",
+    precio: "5500",
+    publish: false,
+  },
+];
 
 //DECLARACIÓN DE VARIABLES
-const tablaProductos = document.getElementById('TablaProductos');
+const tablaProductos = document.getElementById("TablaProductos");
 
 // FORMULARIO AGREGAR PRODUCTOS
-const formProductos = document.getElementById('FormProductos');
-const inputImgProductos = document.getElementById('InputImgProductos');
-const inputNameProductos = document.getElementById('InputNameProductos');
-const inputCatProductos = document.getElementById('InputCatProductos');
+const formProductos = document.getElementById("FormProductos");
+const inputImgProductos = document.getElementById("InputImgProductos");
+const inputNameProductos = document.getElementById("InputNameProductos");
+const inputCatProductos = document.getElementById("InputCatProductos");
 const inputDescripcionProductos = document.getElementById(
-  'InputDescripcionProductos'
+  "InputDescripcionProductos"
 );
-const inputPrecioProductos = document.getElementById('InputPrecioProductos');
+const inputPrecioProductos = document.getElementById("InputPrecioProductos");
 
 //INFORMACION LOCAL STORAGE
-const userAdmin = JSON.parse(localStorage.getItem('isAdmin'));
-const productos = JSON.parse(localStorage.getItem('productos')) || productosDefault;
+const userAdmin = JSON.parse(localStorage.getItem("isAdmin"));
+const productos =
+  JSON.parse(localStorage.getItem("productos")) || productosDefault;
 
-localStorage.setItem('productos', JSON.stringify(productos));
+localStorage.setItem("productos", JSON.stringify(productos));
 
 //FUNCION PARA CONTROL DE ACCESO
 const redirect = (url) => {
@@ -44,15 +68,15 @@ const redirect = (url) => {
 
 const accessControl = () => {
   if (!userAdmin) {
-    redirect('./index.html');
+    redirect("./index.html");
   }
 };
 accessControl();
 
 const logOutAdmin = () => {
-  localStorage.removeItem('isAdmin');
+  localStorage.removeItem("isAdmin");
   setTimeout(() => {
-    redirect('./index.html');
+    redirect("./index.html");
   }, 1000);
 };
 
@@ -61,7 +85,7 @@ function idRandom() {
 }
 
 //AGREGAR HTML
-const showAdminName = document.querySelector('#showAdminName');
+const showAdminName = document.querySelector("#showAdminName");
 showAdminName.innerHTML = `
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -114,15 +138,14 @@ showAdminName.innerHTML = `
 `;
 
 // VARIABLES FORMULARIO EDITAR PRODUCTOS
-const formProductosE = document.getElementById('FormEditProductos');
-const inputImgProductosE = document.getElementById('InputImgProductosE');
-const inputNameProductosE = document.getElementById('InputNameProductosE');
-const inputCatProductosE = document.getElementById('InputCatProductosE');
+const formProductosE = document.getElementById("FormEditProductos");
+const inputImgProductosE = document.getElementById("InputImgProductosE");
+const inputNameProductosE = document.getElementById("InputNameProductosE");
+const inputCatProductosE = document.getElementById("InputCatProductosE");
 const inputDescripcionProductosE = document.getElementById(
-  'InputDescripcionProductosE'
+  "InputDescripcionProductosE"
 );
-const inputPrecioProductosE = document.getElementById('InputPrecioProductosE');
-
+const inputPrecioProductosE = document.getElementById("InputPrecioProductosE");
 
 //FUNCION CREAR PRODUCTOS
 const createProducts = (productos) => {
@@ -133,43 +156,48 @@ const createProducts = (productos) => {
         <div>
     <tr id='tablerow${producto.id}' class='alert'>
       <td>${++index}</td>
-      <td class="w-25"><img src="${producto.img}" alt="${producto.name}" class="w-25"/></td>
+      <td class="w-25"><img src="${producto.img}" alt="${
+          producto.name
+        }" class="w-25"/></td>
       <td>${producto.name}</td>
       <td>${producto.categoria}</td>
       <td>${producto.descripcion}</td>
       <td>${producto.precio}</td>
       <td>
-      <button type="button" onclick="uploadFormEditProduct(${producto.id})" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" onclick="uploadFormEditProduct(${
+        producto.id
+      })" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <i class="fas fa-user-edit"></i></button>
-      <button type="button" onclick="eliminarProducto(${producto.id})" class="btn btn-sm btn-danger">
+      <button type="button" onclick="eliminarProducto(${
+        producto.id
+      })" class="btn btn-sm btn-danger">
       <i class="fas fa-trash-alt"></i></button>
-      <button type="button" onclick="publishProduct(${producto.id})" class="btn btn-sm btn-success">
+      <button type="button" onclick="publishProduct(${
+        producto.id
+      })" class="btn btn-sm btn-success">
       <i class="fas fa-square-check"></i></button>
       </td>
     </tr>
     </div>
   `
     )
-    .join('');
+    .join("");
 
   productos.forEach((producto) => {
-    let element = document.querySelector(`#tablerow${producto.id}`)
-    console.log(element)
-    if (producto.publish == true && element!=null) 
-    element.className='alert alert-danger';
-     }
-    );  
-
-}
+    let element = document.querySelector(`#tablerow${producto.id}`);
+    if (producto.publish == true && element != null)
+      element.className = "alert alert-danger";
+  });
+};
 
 // FUNCION MOSTRAR PRODUCTOS
 const displayProducts = () => {
-  const productosLocalStorage = JSON.parse(localStorage.getItem('productos')) || [];
+  const productosLocalStorage =
+    JSON.parse(localStorage.getItem("productos")) || [];
   const productsAvailable = productosLocalStorage.filter(
-    (producto) => !producto.hasOwnProperty('deleteAt')
+    (producto) => !producto.hasOwnProperty("deleteAt")
   );
   createProducts(productsAvailable);
-
 };
 displayProducts();
 
@@ -193,8 +221,8 @@ formProductos.onsubmit = (event) => {
     publish: false,
   });
 
-  localStorage.setItem('productos', JSON.stringify(productos));
-  swal('Producto guardado con éxito', 'Felicidades','success');
+  localStorage.setItem("productos", JSON.stringify(productos));
+  swal("Producto guardado con éxito", "Felicidades", "success");
   formProductos.reset();
   displayProducts();
   bootstrap.Modal.getInstance(AgregarProducto).hide();
@@ -209,43 +237,30 @@ formProductos.onsubmit = (event) => {
 //   displayProducts();
 // };
 
-//FUNCION PARA ELIMINAR PRODUCTOS 
+//FUNCION PARA ELIMINAR PRODUCTOS
 const eliminarProducto = (id) => {
-productos.forEach((producto) => {
-if (producto.id === id) 
-    producto.deleteAt= new Date()
-}
-);
-localStorage.setItem('productos', JSON.stringify(productos));
-swal('Producto borrado con éxito','Felicitaciones', 'success');
-displayProducts();
+  productos.forEach((producto) => {
+    if (producto.id === id) producto.deleteAt = new Date();
+  });
+  localStorage.setItem("productos", JSON.stringify(productos));
+  swal("Producto borrado con éxito", "Felicitaciones", "success");
+  displayProducts();
 };
 
-
-//FUNCION PARA PUBLICAR PRODUCTOS 
+//FUNCION PARA PUBLICAR PRODUCTOS
 const publishProduct = (id) => {
   productos.forEach((producto) => {
-  if (producto.id === id) 
-      producto.publish = true;
-  }
-  );
+    if (producto.id === id) producto.publish = true;
+  });
 
-  localStorage.setItem('productos', JSON.stringify(productos));
-  swal('Producto publicado con éxito','Felicitaciones', 'success');
+  localStorage.setItem("productos", JSON.stringify(productos));
+  swal("Producto publicado con éxito", "Felicitaciones", "success");
   displayProducts();
-  
-  };
-
-
-
-
-
-
-
+};
 
 let idProductEdit;
 const uploadFormEditProduct = (id) => {
-  const producto = productos.find(producto => producto.id === id);
+  const producto = productos.find((producto) => producto.id === id);
   inputImgProductosE.value = producto.img;
   inputNameProductosE.value = producto.name;
   inputCatProductosE.value = producto.categoria;
@@ -265,11 +280,13 @@ formProductosE.onsubmit = (event) => {
   const precio = inputPrecioProductosE.value;
 
   const updateProducts = productos.map((producto) =>
-    producto.id === idProductEdit ? { ...producto, img, name,categoria, descripcion, precio } : producto
+    producto.id === idProductEdit
+      ? { ...producto, img, name, categoria, descripcion, precio }
+      : producto
   );
 
-  localStorage.setItem('productos', JSON.stringify(updateProducts));
-  swal('Producto editado con éxito','Felicitaciones', 'success');
+  localStorage.setItem("productos", JSON.stringify(updateProducts));
+  swal("Producto editado con éxito", "Felicitaciones", "success");
   formProductosE.reset();
   displayProducts();
   bootstrap.Modal.getInstance(exampleModal).hide();
@@ -279,12 +296,12 @@ formProductosE.onsubmit = (event) => {
 formSearch.onsubmit = (e) => {
   e.preventDefault();
   const term = inputSearch.value;
-  const searchProducts = productos.filter(producto => 
+  const searchProducts = productos.filter((producto) =>
     producto.name.toLowerCase().includes(term.toLowerCase())
   );
   displayProducts(searchProducts);
-}
+};
 
 const clearSearch = () => {
   displayProducts(productos);
-}
+};
