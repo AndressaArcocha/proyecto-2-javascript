@@ -102,7 +102,6 @@ formRegistro.onsubmit = (event) => {
     });
 
     localStorage.setItem('users', JSON.stringify(users));
-    swal('Usuario registrado con éxito','Felicitaciones','success');
     formRegistro.reset();
     let modal = bootstrap.Modal.getInstance(Registro);
   } else {
