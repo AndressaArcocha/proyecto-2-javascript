@@ -1,15 +1,3 @@
-// //USER ADMIN HARDOCODE
-// const useradmin = {
-//   email: "admin@admin.com",
-//   name: "admin",
-//   lastname: "admin",
-//   password: "Renault19",
-//   role: "admin",
-// };
-// const isAdmin = [];
-// isAdmin.push(useradmin);
-// localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
-
 // PRODUCTOS HARDCODE
 productosDefault = [
   {
