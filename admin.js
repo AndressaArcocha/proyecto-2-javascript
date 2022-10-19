@@ -106,7 +106,7 @@ showAdminName.innerHTML = `
     ${userAdmin.name}
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <button type="button" class="dropdown-item" onclick="redirect()">Mi perfil</button>
+    <button type="button" class="dropdown-item" onclick="redirect('./user.html')">Mi perfil</button>
     <button type="button" class="dropdown-item" onclick="logOutAdmin()">Cerrar Sesión</button>
   </div>
 </div>
@@ -167,7 +167,7 @@ const createProducts = (productos) => {
     .map(
       (producto, index) =>
         `
-    <tr id="tablerow${producto.id}" class="alert">
+    <tr id="tablerow${producto.id}" class="table-dark">
       <td>${++index}</td>
       <td class="w-25"><img src="${producto.img}" alt="${producto.name}" class="w-25"/></td>
       <td>${producto.name}</td>
@@ -188,8 +188,8 @@ const createProducts = (productos) => {
     .join('');
     productos.forEach((producto) => {
       let element = document.querySelector(`#tablerow${producto.id}`);
-      if (producto.publish == true && element != null)
-        element.className = "alert alert-danger";
+      if (producto.publish == true)
+        element.className = "table-primary";
     });
 };
 
@@ -256,13 +256,15 @@ const publishProduct = (id) => {
 
 let idProductEdit;
 const uploadFormEditProduct = (id) => {
-  const producto = productos.find(producto => producto.id === id);
-  inputImgProductosE.value = producto.img;
-  inputNameProductosE.value = producto.name;
-  inputCatProductosE.value = producto.categoria;
-  inputDescripcionProductosE.value = producto.descripcion;
-  inputPrecioProductosE.value = producto.precio;
-  idProductEdit = id;
+const producto = productos.find(producto => producto.id === id);
+inputImgProductosE.value = producto.img;
+inputNameProductosE.value = producto.name;
+inputCatProductosE.value = producto.categoria;
+inputDescripcionProductosE.value = producto.descripcion;
+inputPrecioProductosE.value = producto.precio;
+idProductEdit = id;
+
+displayProducts()
 };
 
 // FUNCION EDITAR PRODUCTOS
@@ -274,9 +276,7 @@ formProductosE.onsubmit = (event) => {
   const categoria = inputCatProductosE.value;
   const descripcion = inputDescripcionProductosE.value;
   const precio = inputPrecioProductosE.value;
-  // const updateProducts = productos.map((producto) =>
-  //   producto.id === idProductEdit ? { ...producto, img, name,categoria, descripcion, precio } : producto
-  // );
+  
   id=idProductEdit ;
   let producto = productos.find((producto) => producto.id === id);
   
@@ -286,7 +286,7 @@ formProductosE.onsubmit = (event) => {
   producto.descripcion=inputDescripcionProductosE.value
   producto.precio=inputPrecioProductosE.value ;
 
-  localStorage.setItem('productos', JSON.stringify(updateProducts));
+  localStorage.setItem('productos', JSON.stringify(productos));
   swal('Producto editado con éxito','Felicitaciones', 'success');
   formProductosE.reset();
   displayProducts();
