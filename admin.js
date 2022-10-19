@@ -1,14 +1,14 @@
-//USER ADMIN HARDOCODE
-const useradmin = {
-  email: "admin@admin.com",
-  name: "admin",
-  lastname: "admin",
-  password: "Renault19",
-  role: "admin",
-};
-const isAdmin = [];
-isAdmin.push(useradmin);
-localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
+// //USER ADMIN HARDOCODE
+// const useradmin = {
+//   email: "admin@admin.com",
+//   name: "admin",
+//   lastname: "admin",
+//   password: "Renault19",
+//   role: "admin",
+// };
+// const isAdmin = [];
+// isAdmin.push(useradmin);
+// localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
 
 // PRODUCTOS HARDCODE
 productosDefault = [
@@ -227,15 +227,6 @@ formProductos.onsubmit = (event) => {
   displayProducts();
   bootstrap.Modal.getInstance(AgregarProducto).hide();
 };
-
-// const deleteProduct = (id) => {
-//   const updateProducts = productos.map((producto) =>
-//   producto.id === id ? { ...producto, deleteAt: new Date() } : producto
-//   );
-//   localStorage.setItem('productos', JSON.stringify(updateProducts));
-//   swal('Producto borrado con éxito','Felicitaciones', 'success');
-//   displayProducts();
-// };
 
 //FUNCION PARA ELIMINAR PRODUCTOS
 const eliminarProducto = (id) => {
