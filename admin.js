@@ -1,12 +1,58 @@
 // PRODUCTOS HARDCODE
 productosDefault = [
-  {id:1111, img:'https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-Zeus-H510-Rgb_41187_1.jpeg', name:'Auricular', categoria:'HEADPHONES', descripcion:'Negro',precio:'4500', publish: false},
-  {id:2222, img: 'https://www.venex.com.ar/products_images/1643915198_cetrophorus-rgb.png', name: 'Ratón', categoria: 'MOUSE', descripcion:'Negro', precio:'3500', publish: false},
-  {id:3333, img:'https://mexx-img-2019.s3.amazonaws.com/38539_1.jpeg', name:'Teclado', categoria: 'KEYBOARD', descripcion: 'Negro', precio:'5500', publish: false},
-  {id:4444, img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl27auufAofteMhRNQfeBCeQD3uL5nB-X42w&usqp=CAU', name:'Auricular', categoria: 'HEADPHONES', descripcion: 'Blanco y Rosa', precio:'4700', publish: false},
-  {id:5555, img:'http://www.thekingoftechnology.com/images/1647528060983.jpg', name:'Ratón', categoria: 'MOUSE', descripcion: 'Blanco', precio:'3700', publish: false},
-  {id:6666, img:'https://mexx-img-2019.s3.amazonaws.com/39014_1.jpeg', name:'Teclado', categoria: 'KEYBOARD', descripcion: 'Blanco', precio:'5700', publish: false}
-]
+  {
+    id:1111,
+    img:'https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-Zeus-H510-Rgb_41187_1.jpeg',
+    name:'Auricular',
+    categoria:'HEADPHONES',
+    descripcion:'Negro',
+    precio:'4500',
+    publish: false
+  },
+  {
+    id:2222,
+    img: 'https://www.venex.com.ar/products_images/1643915198_cetrophorus-rgb.png',
+    name: 'Ratón',
+    categoria: 'MOUSE',
+    descripcion:'Negro',
+    precio:'3500',
+    publish: false
+  },
+  {
+    id:3333,
+    img:'https://mexx-img-2019.s3.amazonaws.com/38539_1.jpeg',
+    name:'Teclado',
+    categoria: 'KEYBOARD',
+    descripcion: 'Negro',
+    precio:'5500',
+    publish: false
+  },
+  {
+    id:4444,
+    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl27auufAofteMhRNQfeBCeQD3uL5nB-X42w&usqp=CAU',
+    name:'Auricular',
+    categoria: 'HEADPHONES',
+    descripcion: 'Blanco y Rosa',
+    precio:'4700',
+    publish: false
+  },
+  {id:5555,
+    img:'http://www.thekingoftechnology.com/images/1647528060983.jpg',
+    name:'Ratón',
+    categoria: 'MOUSE',
+    descripcion: 'Blanco',
+    precio:'3700',
+    publish: false
+  },
+ {
+  id:6666,
+  img:'https://mexx-img-2019.s3.amazonaws.com/39014_1.jpeg',
+  name:'Teclado',
+  categoria: 'KEYBOARD',
+  descripcion: 'Blanco',
+  precio:'5700',publish: false
+}
+];
 
 
 //DECLARACIÓN DE VARIABLES
@@ -121,7 +167,7 @@ const createProducts = (productos) => {
     .map(
       (producto, index) =>
         `
-    <tr table-warning>
+    <tr id="tablerow${producto.id}" class="alert">
       <td>${++index}</td>
       <td class="w-25"><img src="${producto.img}" alt="${producto.name}" class="w-25"/></td>
       <td>${producto.name}</td>
@@ -140,7 +186,12 @@ const createProducts = (productos) => {
   `
     )
     .join('');
-}
+    productos.forEach((producto) => {
+      let element = document.querySelector(`#tablerow${producto.id}`);
+      if (producto.publish == true && element != null)
+        element.className = "alert alert-danger";
+    });
+};
 
 // FUNCION MOSTRAR PRODUCTOS
 const displayProducts = () => {
@@ -178,15 +229,6 @@ formProductos.onsubmit = (event) => {
   displayProducts();
   bootstrap.Modal.getInstance(AgregarProducto).hide();
 };
-
-// const deleteProduct = (id) => {
-//   const updateProducts = productos.map((producto) =>
-//   producto.id === id ? { ...producto, deleteAt: new Date() } : producto
-//   );
-//   localStorage.setItem('productos', JSON.stringify(updateProducts));
-//   swal('Producto borrado con éxito','Felicitaciones', 'success');
-//   displayProducts();
-// };
 
 //FUNCION PARA ELIMINAR PRODUCTOS 
 const eliminarProducto = (id) => {
@@ -232,10 +274,17 @@ formProductosE.onsubmit = (event) => {
   const categoria = inputCatProductosE.value;
   const descripcion = inputDescripcionProductosE.value;
   const precio = inputPrecioProductosE.value;
-
-  const updateProducts = productos.map((producto) =>
-    producto.id === idProductEdit ? { ...producto, img, name,categoria, descripcion, precio } : producto
-  );
+  // const updateProducts = productos.map((producto) =>
+  //   producto.id === idProductEdit ? { ...producto, img, name,categoria, descripcion, precio } : producto
+  // );
+  id=idProductEdit ;
+  let producto = productos.find((producto) => producto.id === id);
+  
+  producto.img=inputImgProductosE.value
+  producto.name=inputNameProductosE.value ;
+  producto.categoria=inputCatProductosE.value ;
+  producto.descripcion=inputDescripcionProductosE.value
+  producto.precio=inputPrecioProductosE.value ;
 
   localStorage.setItem('productos', JSON.stringify(updateProducts));
   swal('Producto editado con éxito','Felicitaciones', 'success');
