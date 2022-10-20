@@ -114,31 +114,31 @@ showAdminName.innerHTML = `
 <!-- Modal Editar Productos -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-dark">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar Producto</h5>
+          <h5 class="modal-title text-light" id="exampleModalLabel">Editar Producto</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="FormEditProductos">
             <div class="mb-3">
-              <label for="dir_img" class="form-label">Imágen</label>
+              <label for="dir_img" class="form-label text-light">Imágen</label>
               <input type="text" class="form-control" id="InputImgProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-              <label for="prod" class="form-label">Nombre</label><span class="text-danger">*</span>
+              <label for="prod" class="form-label text-light">Nombre</label><span class="text-danger">*</span>
               <input type="text" class="form-control" id="InputNameProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-              <label for="cat" class="form-label">Categoría</label>
+              <label for="cat" class="form-label text-light">Categoría</label>
               <input type="text" class="form-control" id="InputCatProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-              <label for="desc" class="form-label">Descripción</label>
+              <label for="desc" class="form-label text-light">Descripción</label>
               <input type="text" class="form-control" id="InputDescripcionProductosE" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-              <label for="precio" class="form-label">Precio</label><span class="text-danger">*</span>
+              <label for="precio" class="form-label text-light">Precio</label><span class="text-danger">*</span>
               <input type="texto" class="form-control" id="InputPrecioProductosE" aria-describedby="emailHelp" autocomplete="off" required>
             </div>
             <button type="submit" class="btn btn-outline-primary">Editar</button>
@@ -294,15 +294,15 @@ formProductosE.onsubmit = (event) => {
 };
 
 // FUNCION BUSCADOR
-formSearch.onsubmit = (e) => {
-  e.preventDefault();
-  const term = inputSearch.value;
-  const searchProducts = productos.filter(producto => 
-    producto.name.toLowerCase().includes(term.toLowerCase())
-  );
-  displayProducts(searchProducts);
-}
+// formSearch.onsubmit = (e) => {
+//   e.preventDefault();
+//   const term = inputSearch.value;
+//   const searchProducts = productos.filter(producto => 
+//     producto.name.toLowerCase().includes(term.toLowerCase())
+//   );
+//   displayProducts(searchProducts);
+// }
 
-const clearSearch = () => {
-  displayProducts(productos);
-}
+// const clearSearch = () => {
+//   displayProducts(productos);
+// }

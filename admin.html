@@ -22,7 +22,7 @@
 </head>
 
 <body class="bg-dark">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold fs-4" href="#navbarbrand">Panel de Administración de Productos</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -38,14 +38,14 @@
         </div>
     </nav>
     <div class="container">
-        <h1 class="mt-3 text-light">PRODUCTOS</h1>
+        <h1 class="mt-3 text-light text-center">PRODUCTOS</h1>
         <button type="button" class="btn btn-lg btn-outline-primary my-4" data-bs-toggle="modal"
             data-bs-target="#AgregarProducto">Agregar un producto</button>
-        <form id="formSearch" class="d-flex mt-3 mb-5">
+        <!-- <form id="formSearch" class="d-flex mt-3 mb-5">
             <input id="inputSearch" class="form-control me-2" type="search" placeholder="Escriba el nombre del producto" aria-label="Search">
             <button class="btn btn-lg btn-outline-success" type="submit" onclick="">Buscar</button>
             <button class="btn btn-lg btn-outline-dark ms-3" type="button" onclick="clearSearch()">X</button>
-        </form>    
+        </form>     -->
         <div class="row my-5">
             <table class="table text-primary">
                 <thead>
@@ -70,36 +70,36 @@
     <!-- Modal Agregar Productos -->
     <div class="modal fade" id="AgregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content bg-dark">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar un Producto</h5>
+                    <h5 class="modal-title text-light" id="exampleModalLabel">Agregar un Producto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="FormProductos">
                         <div class="mb-3">
-                            <label for="dir_img" class="form-label">Imágen</label>
-                            <input type="text" class="form-control" id="InputImgProductos" aria-describedby="emailHelp">
+                            <label for="dir_img" class="form-label text-light">Imágen</label>
+                            <input type="text" class="form-control text-light" id="InputImgProductos" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="prod" class="form-label">Nombre</label><span
+                            <label for="prod" class="form-label text-light">Nombre</label><span
                                 class="text-danger">*</span>
                             <input type="text" class="form-control" id="InputNameProductos" aria-describedby="emailHelp"
                                 required>
                         </div>
                         <div class="mb-3">
-                            <label for="cat" class="form-label">Categoría</label><span
+                            <label for="cat" class="form-label text-light">Categoría</label><span
                                 class="text-danger">*</span>
                             <input type="text" class="form-control" id="InputCatProductos" aria-describedby="emailHelp"
                                 required>
                         </div>
                         <div class="mb-3">
-                            <label for="desc" class="form-label">Descripción</label>
+                            <label for="desc" class="form-label text-light">Descripción</label>
                             <input type="text" class="form-control" id="InputDescripcionProductos"
                                 aria-describedby="emailHelp" required>
                         </div>
                         <div class="mb-3">
-                            <label for="precio" class="form-label">Precio</label><span
+                            <label for="precio" class="form-label text-light">Precio</label><span
                                 class="text-danger">*</span>
                             <input type="texto" class="form-control" id="InputPrecioProductos"
                                 aria-describedby="emailHelp" autocomplete="off" required>
