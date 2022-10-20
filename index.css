@@ -883,3 +883,31 @@
     align-items: center;
 }
 
+@media (max-width: 991.98px) {
+    .direccion {
+      flex-direction: column;
+      justify-content: center;
+      width: 80%;
+    }
+  }
+  
+  
+  .contacto {
+    background-color: white;
+    border-radius: 2px;
+  }
+  .imgError {
+    width: 100%;
+  }
+  
+  .encuadre {
+  width: 100%;
+  }
+  .ancho {
+      width: 100%;
+  }
+  
+  .direccion {
+  
+  }
+
