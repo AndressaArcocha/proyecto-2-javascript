@@ -8,9 +8,6 @@ const useradmin = {
   role : 'admin',
   delete: false
 }
-//const users = [];
-//users.push(useradmin);
-//localStorage.setItem('users', JSON.stringify(users));
 
 //FORMULARIO DE REGISTRO
 const formRegistro = document.getElementById('FormRegistro');
