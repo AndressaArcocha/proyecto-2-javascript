@@ -1,3 +1,17 @@
+//USER ADMIN HARDOCODE
+const useradmin = {
+  id:'1111',
+  email : 'admin@admin.com',
+  name : 'admin',
+  lastname: 'admin',
+  pass : 'Renault19',
+  role : 'admin',
+  delete: false
+}
+//const users = [];
+//users.push(useradmin);
+//localStorage.setItem('users', JSON.stringify(users));
+
 //FORMULARIO DE REGISTRO
 const formRegistro = document.getElementById('FormRegistro');
 const inputNameRegistro = document.getElementById('InputNameRegistro');
@@ -21,7 +35,10 @@ const formSearch = document.getElementById('formSearch');
 const inputSearch = document.getElementById('inputSearch');
 
 //INFO LOCAL STORAGE
-const users = JSON.parse(localStorage.getItem('users')) || [];
+const users = []
+users.push(useradmin);
+localStorage.setItem('users', JSON.stringify(users));
+JSON.parse(localStorage.getItem('users'));
 const userLogged = JSON.parse(localStorage.getItem('userLogged'));
 const productos = JSON.parse(localStorage.getItem('productos')) || [];
 
@@ -85,11 +102,8 @@ formRegistro.onsubmit = (event) => {
     });
 
     localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('userLogged', JSON.stringify(users));
-
     formRegistro.reset();
-    redirect('./user.html');
-
+    let modal = bootstrap.Modal.getInstance(Registro);
   } else {
     pAlreadyEmail.classList.remove('d-none');
     return;
@@ -109,11 +123,9 @@ formLogin.onsubmit = (e) => {
     return;
   } else if (findUser.role === 'admin') {
     localStorage.setItem('isAdmin', JSON.stringify(findUser));
-    swal('Bienvenido Admin');
     redirect('./admin.html');
   } else {
     localStorage.setItem('userLogged', JSON.stringify(findUser));
-    swal('Bienvenido');
     //Delay para la redirection
     redirect('./user.html');
   }
@@ -132,29 +144,29 @@ const logOut = () => {
   }, 1000);
 };
 
-// const displayProducts = (productos) => {
-//   const productsAvailable = productos.filter(
-//     (producto) => !producto.hasOwnProperty('deleteAt')
-//   );
-//   divContainerProductos.innerHTML = productsAvailable
-//     .map(
-//       (producto) =>
-//         `
-//         <div class="card" style="width: 18rem;">
-//         <img src="${producto.img}" class="card-img-top" alt="...">
-//         <div class="card-body">
-//           <h5 class="card-title">${producto.name}</h5>
-//           <p class="card-text">${producto.descripcion}
-//           <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span>
-//           </p>
-//           <a href="#" class="btn btn-primary">Comprar</a>
-//         </div>
-//       </div>
-//   `
-//     )
-//     .join('');
-// };
-// displayProducts(productos);
+const displayProducts = (productos) => {
+  const productsAvailable = productos.filter(
+    (producto) => !producto.hasOwnProperty('deleteAt')
+  );
+  divContainerProductos.innerHTML = productsAvailable
+    .map(
+      (producto) =>
+        `
+        <div class="card" style="width: 18rem;">
+        <img src="${producto.img}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${producto.name}</h5>
+          <p class="card-text">${producto.descripcion}
+          <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span>
+          </p>
+          <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
+      </div>
+  `
+    )
+    .join('');
+};
+displayProducts(productos);
 
 formSearch.onsubmit = (e) => {
   e.preventDefault();
