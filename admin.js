@@ -54,7 +54,6 @@ productosDefault = [
 }
 ];
 
-
 //DECLARACIÓN DE VARIABLES
 const tablaProductos = document.getElementById('TablaProductos');
 
@@ -71,7 +70,6 @@ const inputPrecioProductos = document.getElementById('InputPrecioProductos');
 //INFORMACION LOCAL STORAGE
 const userAdmin = JSON.parse(localStorage.getItem('isAdmin'));
 const productos = JSON.parse(localStorage.getItem('productos')) || productosDefault;
-
 localStorage.setItem('productos', JSON.stringify(productos));
 
 //FUNCION PARA CONTROL DE ACCESO
@@ -307,75 +305,75 @@ const clearSearch = () => {
   displayProducts(productos);
 }
 
-//LOGIN - ADMIN - SOFIA
-import {validateContraseña, validateEmail, validateName} from  "./validators.js"
+// //LOGIN - ADMIN - SOFIA
+// import {validateContraseña, validateEmail, validateName} from  "./validators.js"
 
-import { Contacto } from "./contacto.js";
+// import { Contacto } from "./contacto.js";
 
-const formularioContacto = document.getElementById(formContacto)
+// const formularioContacto = document.getElementById(formContacto)
 
-const campoNombre = document.getElementById("nombreContacto")
-const campoContraseña = document.getElementById("contraseñaContacto")
-const campoEmail = document.getElementById("emailContacto")
+// const campoNombre = document.getElementById("nombreContacto")
+// const campoContraseña = document.getElementById("contraseñaContacto")
+// const campoEmail = document.getElementById("emailContacto")
 
-let nombre = "";
-let email= "";
-let contraseña= "";
+// let nombre = "";
+// let email= "";
+// let contraseña= "";
 
 
-campoNombre.addEventListener("blur", (e)=>{//agrega eventos a los elementos de nuestro html
-    if(validateName(e.target.value, campoNombre)){
-      nombre = e.target.value;
-      campoNombre.classList="form-control is valid"
-    }else{
-        campoNombre.classList = "form-control is-invalid"
-    }
-})   
+// campoNombre.addEventListener("blur", (e)=>{//agrega eventos a los elementos de nuestro html
+//     if(validateName(e.target.value, campoNombre)){
+//       nombre = e.target.value;
+//       campoNombre.classList="form-control is valid"
+//     }else{
+//         campoNombre.classList = "form-control is-invalid"
+//     }
+// })   
 
-campoTelefono.addEventListener("blur", (e)=>{//agrega eventos a los elementos de nuestro html
-    if(validateContraseña(e.target.value, campoContraseña)){
-      contraseña = e.target.value;
-    }
-})  
-campoEmail.addEventListener("blur", (e)=>{//agrega eventos a los elementos de nuestro html
-    if(validateEmail(e.target.value, campoEmail)){
-      email = e.target.value;
+// campoTelefono.addEventListener("blur", (e)=>{//agrega eventos a los elementos de nuestro html
+//     if(validateContraseña(e.target.value, campoContraseña)){
+//       contraseña = e.target.value;
+//     }
+// })  
+// campoEmail.addEventListener("blur", (e)=>{//agrega eventos a los elementos de nuestro html
+//     if(validateEmail(e.target.value, campoEmail)){
+//       email = e.target.value;
       
-    }
-})  
+//     }
+// })  
 
 
 
 
 
-formularioContacto.addEventListener("Submit", (e =>{
-    e.preventDefault(); //evita recargar la pagina
+// formularioContacto.addEventListener("Submit", (e =>{
+//     e.preventDefault(); //evita recargar la pagina
 
-    if (
-  validateEmail(nombre, campoEmail) && validateName(Nombre, campoNombre) )
+//     if (
+//   validateEmail(nombre, campoEmail) && validateName(Nombre, campoNombre) )
   
-   {
-    const contacto = new Contacto (nombre, telefono, email,URL,notas);
+//    {
+//     const contacto = new Contacto (nombre, telefono, email,URL,notas);
 
-     //alert("se creo exitosamente el contacto")
-    Swal.fire ({
-      title:"Exito",
-      text:"El contacto se creo exitosamente",
-      icon: "succes",
-   })
+//      //alert("se creo exitosamente el contacto")
+//     Swal.fire ({
+//       title:"Exito",
+//       text:"El contacto se creo exitosamente",
+//       icon: "succes",
+//    })
    
-   campoNombre.value ="";
-   campoTelefono.value ="";
-   campoEmail.value ="";
+//    campoNombre.value ="";
+//    campoTelefono.value ="";
+//    campoEmail.value ="";
 
 
-} else {
-    //console.log ("Algun contacto no es valido")
-    Swal.fire ({
-      title:"Error",
-      text:"Revisa los campos",
-      icon: "warning",
-   })
-  }
-}))
+// } else {
+//     //console.log ("Algun contacto no es valido")
+//     Swal.fire ({
+//       title:"Error",
+//       text:"Revisa los campos",
+//       icon: "warning",
+//    })
+//   }
+// }))
  
